@@ -1,13 +1,27 @@
 package com.example.simsoft.controller;
 
+import com.example.simsoft.entity.UserEntity;
+import com.example.simsoft.repository.UserRepo;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 @RestController
 @RequestMapping("/users")
 public class UserController {
+
+    @Autowired
+    private UserRepo userRepo;
+
+    @PostMapping
+    public ResponseEntity registretion(@RequestBody UserEntity user){
+        try {
+            userRepo.save(user);
+            return ResponseEntity.ok("Пользователь созранен");
+        }catch (Exception e){
+            return ResponseEntity.badRequest().body("Произошла ошибка");
+        }
+    }
 
     @GetMapping ("/")
     public ResponseEntity getUsers(){
