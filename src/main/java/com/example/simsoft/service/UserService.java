@@ -2,6 +2,7 @@ package com.example.simsoft.service;
 
 import com.example.simsoft.entity.UserEntity;
 import com.example.simsoft.exeption.UserAlredyExistException;
+import com.example.simsoft.exeption.UserNotFoundException;
 import com.example.simsoft.repository.UserRepo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
@@ -19,5 +20,13 @@ public class UserService {
             throw  new UserAlredyExistException("Тако пользователь ужеесть");
         }
         return userRepo.save(user);
+    }
+
+    public UserEntity getOne (Long id) throws UserNotFoundException {
+        UserEntity user = userRepo.findById(id).get();
+        if (user == null){
+            throw new UserNotFoundException("Пользователь не найден");
+        }
+        return user;
     }
 }
