@@ -3,6 +3,7 @@ package com.example.simsoft.entity;
 import javax.persistence.*;
 
 @Entity
+@Table(name="todo")
 public class TodoEntity {
 
     @Id
