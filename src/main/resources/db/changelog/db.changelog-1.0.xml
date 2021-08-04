@@ -31,7 +31,7 @@
                 <constraints nullable="false"/>
             </column>
             <column name="user_id" type="bigint">
-                <constraints foreignKeyName="userr_id" references="user_entity(id)"/>
+                <constraints foreignKeyName="user_id" references="user_entity(id)"/>
             </column>
         </createTable>
         <rollback>
