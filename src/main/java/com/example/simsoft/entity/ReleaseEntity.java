@@ -12,7 +12,19 @@ public class ReleaseEntity {
     private String startTime; //дата начала
     private String endTime; //дата окончания
 
+    @OneToOne
+    @JoinColumn(name = "todo_id")
+    private TodoEntity todo;
+
     public ReleaseEntity() {
+    }
+
+    public TodoEntity getTodo() {
+        return todo;
+    }
+
+    public void setTodo(TodoEntity todo) {
+        this.todo = todo;
     }
 
     public Long getId() {
