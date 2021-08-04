@@ -1,0 +1,49 @@
+databaseChangeLog:
+  - changeSet:
+      id: 1
+      author: gunter
+      changes:
+        - createTable:
+            tableName: user_entity
+            columns:
+              - column:
+                  name: id
+                  type: bigint
+                  autoIncrement: true
+                  constraints:
+                    primaryKey: true
+                    nullable: false
+              - column:
+                  name: username
+                  type: character varying (255)
+                  constraints:
+                    nullable: false
+              - column:
+                  name: password
+                  type: character varying (255)
+                  constraints:
+                    nullable: false
+        - createTable:
+            tableName: todo_entity
+            columns:
+              - column:
+                  name: id
+                  type: bigint
+                  autoIncrement: true
+                  constraints:
+                    primaryKey: true
+                    nullable: false
+              - column:
+                  name: completed
+                  type: boolean
+                  constraints:
+                    nullable: false
+              - column:
+                  name: title
+                  type: character varying (255)
+                  constraints:
+                    nullable: false
+              - column:
+                  name: user_id
+                  type: bigint
+                  constraints:
