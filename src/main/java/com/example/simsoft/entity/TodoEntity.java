@@ -15,7 +15,19 @@ public class TodoEntity {
     @JoinColumn(name = "user_id")
     private UserEntity user;
 
+    @OneToOne
+    @JoinColumn(name = "release_id")
+    private ReleaseEntity releaseEntity;
+
     public TodoEntity() {
+    }
+
+    public ReleaseEntity getReleaseEntity() {
+        return releaseEntity;
+    }
+
+    public void setReleaseEntity(ReleaseEntity releaseEntity) {
+        this.releaseEntity = releaseEntity;
     }
 
     public Long getId() {

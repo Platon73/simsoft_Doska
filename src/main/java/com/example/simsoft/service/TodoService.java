@@ -1,8 +1,10 @@
 package com.example.simsoft.service;
 
+import com.example.simsoft.entity.ReleaseEntity;
 import com.example.simsoft.entity.TodoEntity;
 import com.example.simsoft.entity.UserEntity;
 import com.example.simsoft.model.Todo;
+import com.example.simsoft.repository.ReleaseRepo;
 import com.example.simsoft.repository.TodoRepo;
 import com.example.simsoft.repository.UserRepo;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -17,9 +19,13 @@ public class TodoService {
     @Autowired
     private UserRepo userRepo;
 
-    public Todo creatTodo(TodoEntity todo, Long userid){
+    private ReleaseRepo releaseRepo;
+
+    public Todo creatTodo(TodoEntity todo, Long userid, Long releaseId){
         UserEntity user = userRepo.findById(userid).get();
+        ReleaseEntity releaseEntity = releaseRepo.findById(releaseId).get();
         todo.setUser(user);
+        todo.setReleaseEntity(releaseEntity);
         return Todo.toModel(todoRepo.save(todo));
     }
 

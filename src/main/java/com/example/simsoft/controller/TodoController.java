@@ -15,9 +15,10 @@ public class TodoController {
 
     @PostMapping
     public ResponseEntity creatTodo(@RequestBody TodoEntity todo,
-                                    @RequestParam Long userId){
+                                    @RequestParam Long userId,
+                                    @RequestParam Long releaseId){
         try {
-            return ResponseEntity.ok(todoService.creatTodo(todo, userId));
+            return ResponseEntity.ok(todoService.creatTodo(todo, userId, releaseId));
         } catch (Exception e){
             return ResponseEntity.badRequest().body("Произошла ошибка");
         }
