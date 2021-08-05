@@ -8,8 +8,8 @@ public class ReleaseEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-    private String startTime;
-    private String endTime;
+    private String starttime;
+    private String endtime;
 
     public ReleaseEntity() {
     }
@@ -22,20 +22,28 @@ public class ReleaseEntity {
         this.id = id;
     }
 
-    public String getStartTime() {
-        return startTime;
+    public String getStarttime() {
+        return starttime;
     }
 
-    public void setStartTime(String startTime) {
-        this.startTime = startTime;
+    public void setStarttime(String starttime) {
+        this.starttime = starttime;
     }
 
-    public String getEndTime() {
-        return endTime;
+    public String getEndtime() {
+        return endtime;
     }
 
-    public void setEndTime(String endTime) {
-        this.endTime = endTime;
+    public void setEndtime(String endtime) {
+        this.endtime = endtime;
     }
 
+    @Override
+    public String toString() {
+        return "ReleaseEntity{" +
+                "id=" + id +
+                ", starttime='" + starttime + '\'' +
+                ", endtime='" + endtime + '\'' +
+                '}';
+    }
 }

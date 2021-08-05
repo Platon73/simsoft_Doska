@@ -9,10 +9,10 @@
             <column name="id" type="bigint" autoIncrement="true">
                 <constraints nullable="false" primaryKey="true"/>
             </column>
-            <column name="startTime" type="character varying(255)">
+            <column name="starttime" type="character varying(255)">
                 <constraints nullable="false"/>
             </column>
-            <column name="endTime" type="character varying(255)">
+            <column name="endtime" type="character varying(255)">
                 <constraints nullable="false"/>
             </column>
         </createTable>

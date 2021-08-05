@@ -6,6 +6,7 @@ import com.example.simsoft.repository.ReleaseRepo;
 import com.example.simsoft.repository.UserRepo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.web.bind.annotation.RequestBody;
 
 @Service
 public class ReleaseService {
@@ -13,10 +14,9 @@ public class ReleaseService {
     @Autowired
     private ReleaseRepo releaseRepo;
 
-    @Autowired
-    private UserRepo userRepo;
+    public ReleaseEntity creatRelease(@RequestBody ReleaseEntity releaseEntity){
+        System.out.println("В метод creatRelease попал releaseEntity "+releaseEntity);
 
-    public ReleaseEntity creatRelease(ReleaseEntity releaseEntity){
         return releaseRepo.save(releaseEntity);
     }
 }

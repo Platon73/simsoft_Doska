@@ -18,7 +18,9 @@ public class ReleaseController {
     @PostMapping
     public ResponseEntity creatRelease(@RequestBody ReleaseEntity releaseEntity){
         try {
-            return ResponseEntity.ok(releaseService.creatRelease(releaseEntity));
+            System.out.println(releaseEntity.toString());
+            releaseService.creatRelease(releaseEntity);
+            return ResponseEntity.ok("релиз успешно создан");
         } catch (Exception e){
             return ResponseEntity.badRequest().body("Произошла ошибка");
         }
