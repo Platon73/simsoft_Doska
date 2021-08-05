@@ -11,10 +11,6 @@ public class ReleaseEntity {
     private String startTime;
     private String endTime;
 
-    @OneToOne
-    @JoinColumn(name = "user_id")
-    private UserEntity user;
-
     public ReleaseEntity() {
     }
 
@@ -42,11 +38,4 @@ public class ReleaseEntity {
         this.endTime = endTime;
     }
 
-    public UserEntity getUser() {
-        return user;
-    }
-
-    public void setUser(UserEntity user) {
-        this.user = user;
-    }
 }

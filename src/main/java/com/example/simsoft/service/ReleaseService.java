@@ -16,9 +16,7 @@ public class ReleaseService {
     @Autowired
     private UserRepo userRepo;
 
-    public ReleaseEntity creatRelease(ReleaseEntity releaseEntity, Long userId){
-        UserEntity userEntity = userRepo.findById(userId).get();
-        releaseEntity.setUser(userEntity);
+    public ReleaseEntity creatRelease(ReleaseEntity releaseEntity){
         return releaseRepo.save(releaseEntity);
     }
 }

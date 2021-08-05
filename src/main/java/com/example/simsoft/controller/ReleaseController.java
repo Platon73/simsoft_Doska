@@ -16,10 +16,9 @@ public class ReleaseController {
     private ReleaseService releaseService;
 
     @PostMapping
-    public ResponseEntity creatRelease(@RequestBody ReleaseEntity releaseEntity,
-                                    @RequestParam Long userId){
+    public ResponseEntity creatRelease(@RequestBody ReleaseEntity releaseEntity){
         try {
-            return ResponseEntity.ok(releaseService.creatRelease(releaseEntity, userId));
+            return ResponseEntity.ok(releaseService.creatRelease(releaseEntity));
         } catch (Exception e){
             return ResponseEntity.badRequest().body("Произошла ошибка");
         }
